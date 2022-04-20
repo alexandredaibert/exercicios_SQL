@@ -8,7 +8,7 @@ Pontoações:
 - **7** aulas
 - **39** tópicos
 
-[Módulo 1 - Basic SQL](Módulo%201%20-%20Basic%20SQL)
+[Módulo 1 - Basic SQL](Módulo%201%20-%20Basic%20SQL.sql)
 
 LIMIT\
 ORDER BY\
@@ -24,51 +24,51 @@ AND e BETWEEN   \
 OR\
 
 
-[Módulo 2 - SQL Joins](M%C3%B3dulo%202%20-%20Join)
+[Módulo 2 - SQL Joins](M%C3%B3dulo%202%20-%20Join.sql)
 
-INTRODUÇÃO\
+Introdução\
 Join Questions parte 1:\
 LEFT JOIN, RIGHT JOIN e OUTER JOIN\
 
 
-[Módulo 3 - Agregação](M%C3%B3dulo%203%20-%20Agrega%C3%A7%C3%A3o)
+[Módulo 3 - Agregação](M%C3%B3dulo%203%20-%20Agrega%C3%A7%C3%A3o.sql)
 
-*INTRODUÇÃO
-*SUM
-*MIN, MAX e AVG
-*GROUP BY
--GROUP BY pt II
--DISTINCT
--HAVING
--DATE FUNCTIONS
--CASE
+Introdução\
+SUM\
+MIN, MAX e AVG\
+GROUP BY\
+GROUP BY pt II\
+DISTINCT\
+HAVING\
+DATE FUNCTIONS\
+CASE\
 
-[Módulo 4 - SQL Subqueries & Temporary Tables](M%C3%B3dulo%204%20-%20Subqueries%20e%20Tabelas%20Tempor%C3%A1rias)
+[Módulo 4 - SQL Subqueries & Temporary Tables](M%C3%B3dulo%204%20-%20Subqueries%20e%20Tabelas%20Tempor%C3%A1rias.sql)
 
-Subqueries
-WITH / Common Table Expressions (CTE)
-
-
-[Módulo 5 - Data Cleaning](M%C3%B3dulo%205%20-%20Data%20Cleaning)
-
-LEFT, RIGHT, LENGTH
-POSITION e STRPOS
-CONCAT e ||
-CAST
+Subqueries\
+WITH / Common Table Expressions (CTE)\
 
 
-[Módulo 6 - SQL Window Functions](M%C3%B3dulo%206%20-%20SQL%20Window%20Functions)
+[Módulo 5 - Data Cleaning](M%C3%B3dulo%205%20-%20Data%20Cleaning.sql)
 
-OVER, PARTITION BY e WINDOW
-ROW_NUMBER e RANK
-WINDOW function
-LED e LAG
-NTILE
+LEFT, RIGHT, LENGTH\
+POSITION e STRPOS\
+CONCAT e ||\
+CAST\
 
 
-[Módulo 7 - SQL Advanced Joins & Performance Tuning](M%C3%B3dulo%207%20-%20SQL%20Advanced%20Joins%20%26%20Performance%20Tuning)
+[Módulo 6 - SQL Window Functions](M%C3%B3dulo%206%20-%20SQL%20Window%20Functions.sql)
 
-FULL OUTER JOIN
-Inequality JOINs
-Self JOINs
-Performance Tuning with SQL
+OVER, PARTITION BY e WINDOW\
+ROW_NUMBER e RANK\
+WINDOW function\
+LED e LAG\
+NTILE\
+
+
+[Módulo 7 - SQL Advanced Joins & Performance Tuning](M%C3%B3dulo%207%20-%20SQL%20Advanced%20Joins%20%26%20Performance%20Tuning.sql)
+
+FULL OUTER JOIN\
+Inequality JOINs\
+Self JOINs\
+Performance Tuning with SQL\
