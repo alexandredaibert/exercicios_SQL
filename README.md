@@ -21,14 +21,14 @@ LIKE\
 IN\
 NOT\
 AND e BETWEEN   \
-OR\
+OR
 
 
 [Módulo 2 - SQL Joins](M%C3%B3dulo%202%20-%20Join.sql)
 
 Introdução\
 Join Questions parte 1:\
-LEFT JOIN, RIGHT JOIN e OUTER JOIN\
+LEFT JOIN, RIGHT JOIN e OUTER JOIN
 
 
 [Módulo 3 - Agregação](M%C3%B3dulo%203%20-%20Agrega%C3%A7%C3%A3o.sql)
@@ -41,12 +41,12 @@ GROUP BY pt II\
 DISTINCT\
 HAVING\
 DATE FUNCTIONS\
-CASE\
+CASE
 
 [Módulo 4 - SQL Subqueries & Temporary Tables](M%C3%B3dulo%204%20-%20Subqueries%20e%20Tabelas%20Tempor%C3%A1rias.sql)
 
 Subqueries\
-WITH / Common Table Expressions (CTE)\
+WITH / Common Table Expressions (CTE)
 
 
 [Módulo 5 - Data Cleaning](M%C3%B3dulo%205%20-%20Data%20Cleaning.sql)
@@ -54,7 +54,7 @@ WITH / Common Table Expressions (CTE)\
 LEFT, RIGHT, LENGTH\
 POSITION e STRPOS\
 CONCAT e ||\
-CAST\
+CAST
 
 
 [Módulo 6 - SQL Window Functions](M%C3%B3dulo%206%20-%20SQL%20Window%20Functions.sql)
@@ -63,7 +63,7 @@ OVER, PARTITION BY e WINDOW\
 ROW_NUMBER e RANK\
 WINDOW function\
 LED e LAG\
-NTILE\
+NTILE
 
 
 [Módulo 7 - SQL Advanced Joins & Performance Tuning](M%C3%B3dulo%207%20-%20SQL%20Advanced%20Joins%20%26%20Performance%20Tuning.sql)
@@ -71,4 +71,4 @@ NTILE\
 FULL OUTER JOIN\
 Inequality JOINs\
 Self JOINs\
-Performance Tuning with SQL\
+Performance Tuning with SQL
