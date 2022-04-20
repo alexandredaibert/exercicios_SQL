@@ -1,4 +1,4 @@
-# Lista de Exercicios de SQL
+# Lista de Exercicios de SQL ![SQL icon](https://uploaddeimagens.com.br/images/003/836/955/original/4248443.png?1650475401 =100x100)
 
 Lista de exercícios resolvidos por Alexandre Daibert referentes ao curso [SQL for Data Analysis](https://classroom.udacity.com/courses/ud198) da Udacity.
 
