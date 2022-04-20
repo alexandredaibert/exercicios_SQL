@@ -1,8 +1,8 @@
-Anotações Módulo 2 - SQL Joins
+## Anotações Módulo 2 - SQL Joins
 
 ## INTRODUÇÃO
 
-Exemplo de aplicação do inner join.
+# Exemplo de aplicação do inner join.
 
     SELECT orders.*
     FROM   orders
