@@ -1,11 +1,11 @@
-Anotações Módulo 7 - SQL Advanced Joins & Performance Tuning
+#Anotações Módulo 7 - SQL Advanced Joins & Performance Tuning
 
 ## FULL OUTER JOIN
 
-Say you are an analyst at Parch & Posey and you want to see:
+#Say you are an analyst at Parch & Posey and you want to see:
 
-- each account who has a sales rep and each sales rep that has an account (all of the columns in these returned rows will be full)
-- but also each account that does not have a sales rep and each sales rep that does not have an account (some of the columns in these returned rows will be empty)
+#- each account who has a sales rep and each sales rep that has an account (all of the columns in these returned rows will be full)
+#- but also each account that does not have a sales rep and each sales rep that does not have an account (some of the columns in these returned rows will be empty)
 
     SELECT a.id as account,
         s.id as sales_rep
@@ -17,9 +17,9 @@ Say you are an analyst at Parch & Posey and you want to see:
     
 ## Inequality JOINs
 
-In the following SQL Explorer, write a query that left joins the accounts table and the sales_reps tables on each sale rep''s ID number and joins it using the < comparison operator on accounts.primary_poc and sales_reps.name
+#In the following SQL Explorer, write a query that left joins the accounts table and the sales_reps tables on each sale rep''s ID number and joins it using the < comparison operator on accounts.primary_poc and sales_reps.name
 
-The query results should be a table with three columns: the account name (e.g. Johnson Controls), the primary contact name (e.g. Cammy Sosnowski), and the sales representative''s name (e.g. Samuel Racine). Then answer the subsequent multiple choice question.
+#The query results should be a table with three columns: the account name (e.g. Johnson Controls), the primary contact name (e.g. Cammy Sosnowski), and the sales representative''s name (e.g. Samuel Racine). Then answer the subsequent multiple choice question.
 
     SELECT a.name account_name, 
         a.primary_poc, 
@@ -32,12 +32,13 @@ The query results should be a table with three columns: the account name (e.g. J
 
 ## Self JOINs
 
-One of the most common use cases for self JOINs is in cases where two events occurred, one after another. As you may have noticed in the previous video, using inequalities in conjunction with self JOINs is common.
+#One of the most common use cases for self JOINs is in cases where two events occurred, one after another. As you may have noticed in the previous video, using inequalities in conjunction with self JOINs is common.
 
-Modify the query from the previous video, which is pre-populated in the SQL Explorer below, to perform the same interval analysis except for the web_events table. Also:
+#Modify the query from the previous video, which is pre-populated in the SQL Explorer below, to perform the same interval analysis except for the web_events table. Also:
 
-change the interval to 1 day to find those web events that occurred after, but not more than 1 day after, another web event
-add a column for the channel variable in both instances of the table in your query
+#change the interval to 1 day to find those web events that occurred after, but not more than 1 day after, another web event 
+
+#add a column for the channel variable in both instances of the table in your query
 
     SELECT w1.id AS w1_id,
         w1.account_id AS w1_account_id,
@@ -54,7 +55,7 @@ add a column for the channel variable in both instances of the table in your que
     AND w2.occurred_at <= w1.occurred_at + INTERVAL '1 days'
     ORDER BY w1.account_id, w1.occurred_at;
 
-Write a query that uses UNION ALL on two instances (and selecting all columns) of the accounts table. Then inspect the results and answer the subsequent quiz.
+#Write a query that uses UNION ALL on two instances (and selecting all columns) of the accounts table. Then inspect the results and answer the subsequent quiz.
 
     SELECT *
     FROM accounts
@@ -64,7 +65,7 @@ Write a query that uses UNION ALL on two instances (and selecting all columns) o
     SELECT *
     FROM accounts;
 
-Add a WHERE clause to each of the tables that you unioned in the query above, filtering the first table where name equals Walmart and filtering the second table where name equals Disney. Inspect the results then answer the subsequent quiz.
+#Add a WHERE clause to each of the tables that you unioned in the query above, filtering the first table where name equals Walmart and filtering the second table where name equals Disney. Inspect the results then answer the subsequent quiz.
     
     SELECT *
     FROM accounts a
@@ -76,7 +77,7 @@ Add a WHERE clause to each of the tables that you unioned in the query above, fi
     FROM accounts a
     WHERE a.name = 'Disney';
 
-Perform the union in your first query (under the Appending Data via UNION header) in a common table expression and name it double_accounts. Then do a COUNT the number of times a name appears in the double_accounts table. If you do this correctly, your query results should have a count of 2 for each name.
+#Perform the union in your first query (under the Appending Data via UNION header) in a common table expression and name it double_accounts. Then do a COUNT the number of times a name appears in the double_accounts table. If you do this correctly, your query results should have a count of 2 for each name.
 
     WITH double_accounts AS (
         SELECT *
@@ -96,7 +97,7 @@ Perform the union in your first query (under the Appending Data via UNION header
     
 ## Performance Tuning with SQL
 
-Optimze the query below:
+#Optimze the query below:
 /*
 SELECT o.occurred_at AS date,
        COUNT(DISTINCT a.sales_rep_id),
@@ -112,7 +113,7 @@ ORDER BY 1 DESC
 */
 
 
-Solução:
+#Solução:
 
     WITH web AS (
         SELECT DATE_TRUNC('day', w.occurred_at) date,

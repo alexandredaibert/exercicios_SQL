@@ -1,8 +1,8 @@
-Anotações Módulo 4 - SQL Subqueries & Temporary Tables
+# Anotações Módulo 4 - SQL Subqueries & Temporary Tables
 
 ## Subqueries
 
-Use the test environment below to find the number of events that occur for each day for each channel.
+# Use the test environment below to find the number of events that occur for each day for each channel.
 
     SELECT channel,
         DATE_TRUNC('day', occurred_at) day,
@@ -11,7 +11,7 @@ Use the test environment below to find the number of events that occur for each 
     GROUP BY 1, 2
     ORDER BY 3 DESC;
 
-Now create a subquery that simply provides all of the data from your first query.
+# Now create a subquery that simply provides all of the data from your first query.
 
     SELECT *
     FROM
@@ -22,7 +22,7 @@ Now create a subquery that simply provides all of the data from your first query
     GROUP BY 1, 2
     ORDER BY 3 DESC) subquery;
 
-Now find the average number of events for each channel. Since you broke out by day earlier, this is giving you and average per day.
+# Now find the average number of events for each channel. Since you broke out by day earlier, this is giving you and average per day.
 
     SELECT channel, AVG(contagem) media_eventos_dia
     FROM
@@ -34,12 +34,12 @@ Now find the average number of events for each channel. Since you broke out by d
     ORDER BY 3 DESC) subquery
     GROUP BY 1;
 
-Use DATE_TRUNC to pull month level information about the fist order ever placed in the orders table.
+# Use DATE_TRUNC to pull month level information about the fist order ever placed in the orders table.
 
     SELECT DATE_TRUNC('month',MIN(occurred_at))
     FROM orders;
 
-Use the result to the previous query to find the orders that took place in the same month and year as the first order, and then pull the average for each type of paper qty in this month.    
+# Use the result to the previous query to find the orders that took place in the same month and year as the first order, and then pull the average for each type of paper qty in this month.    
     
     SELECT AVG(standard_qty) avg_standard,
         AVG(poster_qty) avg_poster,
@@ -49,7 +49,7 @@ Use the result to the previous query to find the orders that took place in the s
         (SELECT DATE_TRUNC('month',MIN(occurred_at))
         FROM orders);
 
-Provide the name of the sales_rep in each region with the largest amount of total_amt_usd sales.
+# Provide the name of the sales_rep in each region with the largest amount of total_amt_usd sales.
 
     SELECT r.name region,
         s.name sales_rep,
@@ -86,7 +86,7 @@ Provide the name of the sales_rep in each region with the largest amount of tota
             ) AS sub2
         );
 
-For the region with the largest (sum) of sales total_amt_usd, how many total (count) orders were placed?
+# For the region with the largest (sum) of sales total_amt_usd, how many total (count) orders were placed?
 
     SELECT r.name, COUNT(o.total) total_orders
     FROM sales_reps s
@@ -112,7 +112,7 @@ For the region with the largest (sum) of sales total_amt_usd, how many total (co
             GROUP BY r.name) sub
         );
 
-How many accounts had more total purchases than the account name which has bought the most standard_qty paper throughout their lifetime as a customer?
+# How many accounts had more total purchases than the account name which has bought the most standard_qty paper throughout their lifetime as a customer?
 
     SELECT account_id,
         SUM(total) total_purchases,
@@ -135,7 +135,7 @@ How many accounts had more total purchases than the account name which has bough
             LIMIT 1) AS sub
         );
 
-For the customer that spent the most (in total over their lifetime as a customer) total_amt_usd, how many web_events did they have for each channel?
+# For the customer that spent the most (in total over their lifetime as a customer) total_amt_usd, how many web_events did they have for each channel?
 
     SELECT w.channel, COUNT(*)
     FROM web_events w
@@ -150,7 +150,7 @@ For the customer that spent the most (in total over their lifetime as a customer
     ON a.id = sub.account_id
     GROUP BY 1;
 
-What is the lifetime average amount spent in terms of total_amt_usd for the top 10 total spending accounts?
+# What is the lifetime average amount spent in terms of total_amt_usd for the top 10 total spending accounts?
 
     SELECT AVG(usd_total) lt_avg_amount
     FROM /* top 10 accounts */
@@ -162,7 +162,7 @@ What is the lifetime average amount spent in terms of total_amt_usd for the top 
         LIMIT 10
     ) AS sub;
 
-What is the lifetime average amount spent in terms of total_amt_usd, including only the companies that spent more per order, on average, than the average of all orders.
+# What is the lifetime average amount spent in terms of total_amt_usd, including only the companies that spent more per order, on average, than the average of all orders.
 
     SELECT AVG(total_sales_per_id)
     FROM
@@ -176,7 +176,7 @@ What is the lifetime average amount spent in terms of total_amt_usd, including o
  
 ## WITH / Common Table Expressions (CTE)
 
-Provide the name of the sales_rep in each region with the largest amount of total_amt_usd sales.
+# Provide the name of the sales_rep in each region with the largest amount of total_amt_usd sales.
 
     /* vendas por representante por região */
     WITH soma_vendas AS (
@@ -203,7 +203,7 @@ Provide the name of the sales_rep in each region with the largest amount of tota
         FROM soma_vendas) sub
     ON s.max = sub.venda_por_rep;
 
-For the region with the largest sales total_amt_usd, how many total orders were placed?
+# For the region with the largest sales total_amt_usd, how many total orders were placed?
 
     WITH soma_vendas AS (
         SELECT r.name regiao,
@@ -223,7 +223,7 @@ For the region with the largest sales total_amt_usd, how many total orders were 
     SELECT total_orders
     FROM soma_vendas;
 
-How many accounts had more total purchases than the account name which has bought the most standard_qty paper throughout their lifetime as a customer?
+# How many accounts had more total purchases than the account name which has bought the most standard_qty paper throughout their lifetime as a customer?
 
     WITH account_1 AS (
         SELECT account_id, 
@@ -246,7 +246,7 @@ How many accounts had more total purchases than the account name which has bough
     )
     SELECT COUNT(*) FROM table_filtered_accounts;
 
-For the customer that spent the most (in total over their lifetime as a customer) total_amt_usd, how many web_events did they have for each channel?
+# For the customer that spent the most (in total over their lifetime as a customer) total_amt_usd, how many web_events did they have for each channel?
 
     WITH customer_1 AS (
         SELECT account_id, SUM(total_amt_usd) total
@@ -261,7 +261,7 @@ For the customer that spent the most (in total over their lifetime as a customer
     ON w.account_id = c.account_id
     GROUP BY w.channel;
 
-What is the lifetime average amount spent in terms of total_amt_usd for the top 10 total spending accounts?
+# What is the lifetime average amount spent in terms of total_amt_usd for the top 10 total spending accounts?
 
     WITH ten_spending AS (
         SELECT account_id, SUM(total_amt_usd) total_usd
@@ -273,7 +273,7 @@ What is the lifetime average amount spent in terms of total_amt_usd for the top 
     SELECT AVG(total_usd) 
     FROM ten_spending;
 
-What is the lifetime average amount spent in terms of total_amt_usd, including only the companies that spent more per order, on average, than the average of all orders.
+# What is the lifetime average amount spent in terms of total_amt_usd, including only the companies that spent more per order, on average, than the average of all orders.
 
     WITH avg_orders AS (
         SELECT AVG(o.total_amt_usd)
