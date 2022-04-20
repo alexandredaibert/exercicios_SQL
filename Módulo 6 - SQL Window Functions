@@ -1,6 +1,6 @@
 Anotações Módulo 6 - SQL Window Functions
 
-# OVER, PARTITION BY e WINDOW
+## OVER, PARTITION BY e WINDOW
 
 This time, create a running total of standard_amt_usd (in the orders table) over order time with no date truncation. Your final table should have two columns: one with the amount being added for each new row, and a second with the running total.
 
@@ -16,7 +16,7 @@ Now, modify your query from the previous quiz to include partitions. Still creat
     FROM orders;
 
     
-# ROW_NUMBER e RANK
+## ROW_NUMBER e RANK
 
 Select the id, account_id, and total variable from the orders table, then create a column called total_rank that ranks this total amount of paper ordered (from highest to lowest) for each account using a partition. Your final table should have these four columns.
 
@@ -39,7 +39,7 @@ Remove ORDER BY DATE_TRUNC('month',occurred_at) in each line of the query that c
     FROM orders;                                                        
   
   
-# WINDOW function
+## WINDOW function
              
 Now, create and use an alias to shorten the following query (which is different than the one in Derek previous video) that has multiple window functions. Name the alias account_year_window, which is more descriptive than main_window in the example above.
              
@@ -57,7 +57,7 @@ Now, create and use an alias to shorten the following query (which is different 
     WINDOW account_year_windows AS (PARTITION BY account_id ORDER BY DATE_TRUNC('month',occurred_at));
                           
 
-# LED e LAG
+## LED e LAG
 
 Imagine you are an analyst at Parch & Posey and you want to determine how the current order''s total revenue ("total" meaning from sales of all types of paper) compares to the next order''s total revenue.
 
@@ -74,7 +74,7 @@ Imagine you are an analyst at Parch & Posey and you want to determine how the cu
     WINDOW w AS (ORDER BY month);
  
 
-# NTILE
+## NTILE
 
 You can use partitions with percentiles to determine the percentile of a specific subset of all rows. Imagine you are an analyst at Parch & Posey and you want to determine the largest orders (in terms of quantity) a specific customer has made to encourage them to order more similarly sized large orders. You only want to consider the NTILE for that customer''s account_id.
 

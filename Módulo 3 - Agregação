@@ -2,7 +2,7 @@ Anotações Módulo 3 - Agragação
 
 ## INTRODUÇÃO
 
-# SUM
+## SUM
 
 Find the total amount of poster_qty paper ordered in the orders table.
 
@@ -25,7 +25,7 @@ Find the standard_amt_usd per unit of standard_qty paper. Your solution should u
     SELECT SUM(standard_amt_usd) as standard_amt, SUM(standard_qty) as standard_qty, SUM(standard_amt_usd) / SUM(standard_qty) valor_standard_unitario
     FROM orders;
 
-# MIN, MAX e AVG
+## MIN, MAX e AVG
 
 When was the earliest order ever placed? You only need to return the date.
 
@@ -135,7 +135,7 @@ Find the number of sales reps in each region. Your final table should have two c
     GROUP BY r.name;
 
     
-# GROUP BY pt II
+## GROUP BY pt II
 
 For each account, determine the average amount of each type of paper they purchased across their orders. Your result should have four columns - one for the account name and one for the average quantity purchased for each of the paper types for each account.
 
@@ -190,7 +190,7 @@ Determine the number of times a particular channel was used in the web_events ta
     ORDER BY number_occourrences DESC;
 
 
-# DISTINCT
+## DISTINCT
 
 Use DISTINCT to test if there are any accounts associated with more than one region.
 

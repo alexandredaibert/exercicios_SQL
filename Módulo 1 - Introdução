@@ -39,7 +39,7 @@ Write a query that displays the order ID, account ID, and total dollar amount fo
 
     SELECT id, account_id, total_amt_usd
     FROM orders
-    ORDER BY account_id, total_amt_usd DESC
+    ORDER BY account_id, total_amt_usd DESC;
 
 
 Now write a query that again displays order ID, account ID, and total dollar amount for each order, but this time sorted first by total dollar amount (in descending order), and then by account ID (in ascending order).
@@ -96,19 +96,19 @@ All the companies whose names start with 'C'.
 
     SELECT name
     FROM accounts
-    WHERE name LIKE 'C%'
+    WHERE name LIKE 'C%';
 
 All companies whose names contain the string 'one' somewhere in the name.
 
     SELECT name
     FROM accounts
-    WHERE name LIKE '%One%' OR name LIKE '%one%'
+    WHERE name LIKE '%One%' OR name LIKE '%one%';
 
 All companies whose names end with 's'.
 
     SELECT name
     FROM accounts
-    WHERE name LIKE '%s'
+    WHERE name LIKE '%s';
     
 
 ## IN
@@ -117,13 +117,13 @@ Use the accounts table to find the account name, primary_poc, and sales_rep_id f
 
     SELECT name, primary_poc, sales_rep_id
     FROM accounts
-    WHERE name IN ('Walmart', 'Target', 'Nordstrom')
+    WHERE name IN ('Walmart', 'Target', 'Nordstrom');
 
 Use the web_events table to find all information regarding individuals who were contacted via the channel of organic or adwords.
 
     SELECT *
     FROM web_events
-    WHERE channel IN ('organic', 'adwords')
+    WHERE channel IN ('organic', 'adwords');
 
 # NOT
 
@@ -131,19 +131,19 @@ Use the accounts table to find the account name, primary poc, and sales rep id f
 
     SELECT name, primary_poc, sales_rep_id
     FROM accounts
-    WHERE name NOT IN ('Walmart', 'Target', 'Nordstrom')
+    WHERE name NOT IN ('Walmart', 'Target', 'Nordstrom');
 
 Use the web_events table to find all information regarding individuals who were contacted via any method except using organic or adwords methods.
 
     SELECT *
     FROM web_events
-    WHERE channel NOT IN ('organic', 'adwords')
+    WHERE channel NOT IN ('organic', 'adwords');
     
 All the companies whose names do not start with 'C'.
  
     SELECT name
     FROM accounts
-    WHERE name NOT LIKE 'C%'
+    WHERE name NOT LIKE 'C%';
 
 ## AND e BETWEEN    
     
@@ -157,7 +157,7 @@ Using the accounts table, find all the companies whose names do not start with '
 
     SELECT name
     FROM accounts
-    WHERE name LIKE 'C%s'
+    WHERE name LIKE 'C%s';
 
 When you use the BETWEEN operator in SQL, do the results include the values of your endpoints, or not? Figure out the answer to this important question by writing a query that displays the order date and gloss_qty data for all orders where gloss_qty is between 24 and 29. Then look at your output to see if the BETWEEN operator included the begin and end values or not.
 
@@ -175,7 +175,7 @@ Use the web_events table to find all information regarding individuals who were 
     WHERE 
         channel IN ('organic', 'adwords') AND 
         occurred_at BETWEEN '2016-01-01' AND '2017-01-01'
-    ORDER BY occurred_at DESC
+    ORDER BY occurred_at DESC;
 
 ## OR
 
@@ -192,7 +192,7 @@ Write a query that returns a list of orders where the standard_qty is zero and e
     WHERE standard_qty=0 
     AND (gloss_qty > 1000 OR poster_qty > 1000);
 
-Find all the company names that start with a 'C' or 'W', and the primary contact contains 'ana' or 'Ana', but it doesn't contain 'eana'.
+Find all the company names that start with a 'C' or 'W', and the primary contact contains 'ana' or 'Ana', but it doesn't contain 'eana'. '
 
     SELECT name, primary_poc
     FROM accounts
